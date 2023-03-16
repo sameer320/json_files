@@ -24,9 +24,6 @@
       "description": "Send bulk knowtification to user count upto 20K"
     }
   ],
-  "schemes": [
-    "https"
-  ],
   "paths": {
     "/api/v1/sendKnowtifyMsg": {
       "post": {
@@ -130,7 +127,7 @@
         "contentVariables": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "4536"
           }
         }
       }
