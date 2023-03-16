@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Knowtify bulk knowtificaiton V1",
+    "description": "This is a sample Api documentation of bulk knowtification of Knowtify",
+    "termsOfService": "https://knowtify.co.in/app-terms-of-services.html",
+    "contact": {
+      "email": "support@knowtify.co.in"
+    },
+    "version": "1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about Knowtify",
+    "url": "https://knowtify.co.in/"
+  },
+  "servers": [
+    {
+      "url": "https://knowtify-dev-6icg44vnla-el.a.run.app"
+    }
+  ],
+  "tags": [
+    {
+      "name": "bulk_knowtification",
+      "description": "Send bulk knowtification to user count upto 20K"
+    }
+  ],
+  "paths": {
+    "/api/v1/sendKnowtifyMsg": {
+      "post": {
+        "tags": [
+          "bulk_knowtification"
+        ],
+        "summary": "Send knowtificaiton to user upto 20K",
+        "description": "In request user will list user with there variables and list of user variables",
+        "operationId": "send_knowtification",
+        "requestBody": {
+          "description": "create bulk knowtification request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Knowtification"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/200"
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "405": {
+            "$ref": "#/components/responses/405"
+          },
+          "408": {
+            "$ref": "#/components/responses/408"
+          },
+          "413": {
+            "$ref": "#/components/responses/413"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          },
+          "503": {
+            "$ref": "#/components/responses/503"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Knowtification": {
+        "required": [
+          "template_id"
+        ],
+        "type": "object",
+        "properties": {
+          "template_id": {
+            "type": "string",
+            "example": "template_id"
+          },
+          "userArray": {
+            "type": "array",
+            "xml": {
+              "wrapped": true
+            },
+            "items": {
+              "$ref": "#/components/schemas/UserData"
+            }
+          }
+        }
+      },
+      "UserData": {
+        "type": "object",
+        "properties": {
+          "phone": {
+            "type": "string"
+          },
+          "contentVariables": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "SUCCESS"
+          },
+          "message": {
+            "type": "string",
+            "example": "Request successfully completed we will start knowtification sending process."
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "ERROR"
+          },
+          "message": {
+            "type": "string",
+            "example": "Something went wrong."
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Ok",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/SuccessResponse"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Bad request"
+      },
+      "401": {
+        "description": "Unauthorised"
+      },
+      "403": {
+        "description": "Forbidden"
+      },
+      "404": {
+        "description": "Not Found"
+      },
+      "405": {
+        "description": "Method not allowed"
+      },
+      "408": {
+        "description": "Request time out"
+      },
+      "413": {
+        "description": "Payload too large"
+      },
+      "500": {
+        "description": "Internal server error"
+      },
+      "503": {
+        "description": "Service unavailable"
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  }
+}
