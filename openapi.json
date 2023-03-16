@@ -106,13 +106,10 @@
       "properties": {
         "templateId": {
           "type": "string",
-          "example": "templateId"
+          "example": "Injk1sdanj2Ljasdj"
         },
         "userArray": {
           "type": "array",
-          "xml": {
-            "wrapped": true
-          },
           "items": {
             "$ref": "#/definitions/UserData"
           }
@@ -127,7 +124,8 @@
       "type": "object",
       "properties": {
         "phone": {
-          "type": "string"
+          "type": "string",
+          "example": "9123456789"
         },
         "contentVariables": {
           "type": "array",
@@ -146,7 +144,7 @@
         },
         "statusCode": {
           "type": "string",
-          "example": "200"
+          "example": "TMPNTC001"
         },
         "message": {
           "type": "string",
