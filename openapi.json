@@ -13,10 +13,8 @@
     "description": "Find out more about Knowtify",
     "url": "https://knowtify.co.in/"
   },
-  "servers": [
-    {
-      "url": "https://knowtify-dev-6icg44vnla-el.a.run.app"
-    }
+  "schemes": [
+    "https://knowtify-dev-6icg44vnla-el.a.run.app"
   ],
   "tags": [
     {
