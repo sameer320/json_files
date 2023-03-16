@@ -40,7 +40,7 @@
           {
             "in": "body",
             "name": "body",
-            "description": "create bulk knowtification request",
+            "description": "Create bulk knowtification request",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Knowtification"
@@ -120,6 +120,10 @@
       }
     },
     "UserData": {
+      "required": [
+        "phone",
+        "contentVariables"
+      ],
       "type": "object",
       "properties": {
         "phone": {
@@ -142,7 +146,7 @@
         },
         "statusCode": {
           "type": "string",
-          "example": "200/400/401/500..."
+          "example": "200"
         },
         "message": {
           "type": "string",
@@ -156,6 +160,10 @@
         "status": {
           "type": "string",
           "example": "ERROR"
+        },
+        "statusCode": {
+          "type": "string",
+          "example": "400/401/500..."
         },
         "message": {
           "type": "string",
