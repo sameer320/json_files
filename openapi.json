@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "baseUrl"
+      "url": "https://knowtify-dev-6icg44vnla-el.a.run.app"
     }
   ],
   "tags": [
