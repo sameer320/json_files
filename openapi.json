@@ -127,7 +127,8 @@
         "contentVariables": {
           "type": "array",
           "items": {
-            "type": "4536"
+            "type": "string",
+            "example": "4125"
           }
         }
       }
