@@ -35,27 +35,29 @@
         ],
         "summary": "Send knowtificaiton to user upto 20K",
         "description": "In request user will list user with there variables and list of user variables",
-        "operationId": "send_knowtification",
-        "requestBody": {
-          "description": "create bulk knowtification request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/definitions/Knowtification"
-              }
+        "operationId": "sendKnowtification",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "create bulk knowtification request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Knowtification"
             }
-          },
-          "required": true
-        },
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/definitions/SuccessResponse"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/SuccessResponse"
             }
           },
           "400": {
@@ -97,13 +99,14 @@
   "definitions": {
     "Knowtification": {
       "required": [
-        "template_id"
+        "templateId",
+        "userArray"
       ],
       "type": "object",
       "properties": {
-        "template_id": {
+        "templateId": {
           "type": "string",
-          "example": "template_id"
+          "example": "templateId"
         },
         "userArray": {
           "type": "array",
