@@ -111,7 +111,7 @@
             "wrapped": true
           },
           "items": {
-            "$ref": "#/components/schemas/UserData"
+            "$ref": "#/definitions/UserData"
           }
         }
       }
